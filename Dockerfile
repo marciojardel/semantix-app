@@ -10,4 +10,4 @@ RUN pip3 install virtualenv
 RUN virtualenv -p python3 env
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT ["python3", "blog.py"]
+ENTRYPOINT ["python3"]
