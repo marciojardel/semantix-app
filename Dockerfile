@@ -1,13 +1,5 @@
-FROM python:3.7
-
+FROM openjdk:8-jre-alpine
+ADD ./target/*.jar /app/app.jar
+WORKDIR /app
 EXPOSE 8888
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY requirements.txt /usr/src/app/
-RUN pip3 install virtualenv
-RUN virtualenv -p python3 env
-RUN pip install --no-cache-dir -r requirements.txt
-
-ENTRYPOINT ["python3"]
+CMD java -jar app.jar
